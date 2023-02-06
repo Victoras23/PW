@@ -1,0 +1,543 @@
+/* add your CSS here */
+
+/*
+//////////////////////////////////////////////
+general
+//////////////////////////////////////////////
+*/
+
+.Button{
+    font-size: 1vw;
+}
+
+.Button:hover{
+    cursor:pointer;
+}
+
+.BlackLine{
+    margin-top: 0.25vw;
+}
+
+.GroceriesArrow{
+    margin-top: 6vw;
+}
+/*
+//////////////////////////////////////////////
+header
+//////////////////////////////////////////////
+*/
+
+.HeaderBlock{
+    position :fixed;
+    display :flex;
+    justify-content: center;
+    width: 100%;
+    height: 15vh;
+    align-items: center;
+}
+
+.HeaderSectionsBox{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.SectionsBlocks{
+    display: flex;
+    align-items: center;
+}
+
+.HeaderActionsBlock{
+    display:flex;
+}
+
+.SectionsBlocks img:hover{
+    cursor: pointer;
+}
+
+.Cart{
+    margin-left: 30%;
+}
+
+
+.SectionsBlocks a{
+    text-decoration: none;
+    color: #d15422;
+    margin-left:5%;
+    white-space: nowrap;
+}
+
+
+/*
+//////////////////////////////////////////////
+Header mobile
+//////////////////////////////////////////////
+*/
+
+.HeaderSectionsBoxMobile{
+    display:flex;
+    flex-direction: column;
+}
+
+.SectionsBlocksMobile{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.SectionsBlocksMobile a{
+    text-decoration: none;
+    color:#d15422;
+    font-size:6vw;
+    margin-top: 2vh;
+}
+
+.SectionsBlocksMobile img{
+    width : 15vw
+}
+
+.HeaderActionsBlockMobile{
+    display:flex
+}
+
+.HeaderActionsBlockMobile img{
+    filter: invert(30%)
+}
+
+.HeaderBlockMobile{
+    display: none;
+    width:90%;
+    align-items: flex-end;
+    flex-direction: column;
+    position:fixed;
+    margin-top: 2vw;
+}
+
+
+.HeaderSectionsBoxMobile{
+    background: #e0d2c3;
+    position:fixed;
+    width : 100vw;
+    height: 100vh;
+    z-index : 2;
+    display : none;
+    justify-content: center;
+    align-items: center;
+    z-index:2;
+    margin-right: -10vw;
+    margin-top: -2vw;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 4vw;
+    height: 0.6vw;
+    background-color: #e0d2c3;
+    margin: 0.4vw 0;
+    transition: 0.4s;
+    z-index : 10;
+}
+
+.change .HeaderSectionsBoxMobile{
+    display : flex;
+}
+
+.change .bar1 {
+  transform: translate(0, 1.4vw) rotate(-45deg);
+  background-color: #d15422;
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -1.4vw) rotate(45deg);
+  background-color: #d15422;
+}
+
+/*
+//////////////////////////////////////////////
+Groceries
+//////////////////////////////////////////////
+*/
+
+.GroceriesOnTheGoBlock{
+    background-image: url(../images/page_224.png);
+    background-size: cover;
+    width : 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 53vw;
+}
+
+.GroceriesBlockInfo{
+    max-width: 40%;
+    display : flex;
+    flex-direction: column;
+    margin-left: 9vw;
+    align-items: center;
+}
+
+.GroceriesSlogan{
+    transform: rotate(90deg);
+    margin-right: -2vw;
+    color: #e0d2c3;
+    font-size: 1.75vw;
+}
+
+.GroceriesButtons{
+    display : flex;
+}
+
+.GroceriesTitle{
+    color: #d15422;
+    font-size: 8vw;
+    text-align: center;
+}
+
+.GroceriesDescription{
+    font-size: 1vw;
+    max-width: 80%;
+    text-align: center;
+}
+
+.GroceriesButtons{
+    display:flex;
+    justify-content:space-between;
+    width : 20vw;
+    margin-top: 1.5vw;
+}
+.GroceriesShopNow{
+    background-color: #d15422;
+    color: #e0d2c3;
+    border-radius: 20px;
+    width: 9vw;
+    height: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:4px solid black;
+}
+
+.GroceriesLearnMore{
+    border-radius: 20px;
+    color: #d15422;
+    width: 9vw;
+    height: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:4px solid black;
+}
+
+
+
+/* 
+//////////////////////////////////////////////
+Locally Sourced Block
+//////////////////////////////////////////////
+*/
+
+
+.LocallySourcedBlock{
+    background-image: url(../images/page_225.png);
+    background-size: cover;
+    width : 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vw;
+}
+
+.LocallySourcedPromice{
+    color: black;
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+.LocallySourcedTitle{
+    color: #e0d2c3;
+    font-size: 7vw;
+    text-align: center;
+    width: 70vw;
+}
+
+.LocallySourcedText{
+    margin-top:3vw;
+    color: #e0d2c3;
+    font-size: 1vw;
+    text-align: center;
+    width: 32vw;
+}
+
+.LocallySourcedButton{
+    margin-top:3vw;
+    background-color: #e0d2c3;
+    
+    border-radius: 30px;
+    width: 9vw;
+    height: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:4px solid black;
+}
+
+/* 
+//////////////////////////////////////////////
+Made simple
+//////////////////////////////////////////////
+*/
+
+.MoveSimpleArrows{
+    margin-top: 3vw;
+}
+
+
+.MoveSimpleArrows img{
+    
+    filter: hue-rotate(280deg) saturate(200%);
+}
+
+
+.MadeSimpleBlok{
+    background-image: url(../images/page_226.png);
+    background-size: cover;
+    width : 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 55vw;
+}
+
+.MadeSimpleTitle{
+    color: #d15422;
+    font-size: 8vw;
+    text-align: center;
+}
+
+.MadeSimpleinfo{
+    margin-top:3vw;
+    color: black;
+    font-size: 1vw;
+    text-align: center;
+    width: 40vw;
+}
+
+.MadeSimpleProducts{
+    display:flex;
+    justify-content: space-between;
+    margin-top: 3vw;
+    width: 60vw;
+}
+
+.ProductImage{
+    width: 18vw;
+    height: 18vw;
+    border: 3px solid black;
+    border-radius: 30px;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ProductImage img{
+    width : 6vw;
+}
+
+.ProductData{
+    margin-top: 1vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ProductPrice{
+    color: #d15422;
+}
+
+.ProductName{
+    font-weight: bold;
+}
+
+.ProductButton{
+    background-color: #d15422;
+    border-radius: 20px;
+    width: 9vw;
+    height: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border:2px solid black;
+}
+
+
+/* 
+
+FAQ  BLOCK
+
+*/
+
+.FAQBlock{
+    background-image: url(../images/page_227.png);
+    background-size: cover;
+    width : 100vw;
+    display: flex;
+    flex-direction: column;
+    height: 45vw;
+}
+
+.FAQsTitle{
+    color: #e0d2c3;
+    font-size: 7vw;
+    margin-top : 8vw;
+    margin-left : 8vw;
+}
+
+.FAQsQuestions{
+    margin-left : 8vw;
+    margin-top : 4vw;
+}
+
+.Question{
+    color : #e0d2c3;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vw;
+    font-size: 1.5vw;
+    width: 43%;
+}
+
+.Question:hover{
+    cursor: pointer;
+}
+
+.Question::after {
+    content: '';
+    position: absolute;
+    width: 40%;
+    margin-top: 2vw;
+    height: 2px;
+    background-color: #e0d2c3;
+}
+
+
+/* 
+///////////////////////////////////////
+media section
+///////////////////////////////////////
+*/
+
+@media (max-width: 680px){
+    .HeaderBlock{
+        display:none;
+    }
+    .HeaderBlockMobile{
+        display:flex;
+    }
+
+    .GroceriesBlockInfo{
+        margin: 0;
+    }
+
+    .GroceriesOnTheGoBlock{
+        background-image: url(../images/page_224Mobile.png);
+        height: 90vw;
+        justify-content: center;
+    }
+    .GroceriesSlogan{
+        display:none;
+    }
+
+    .GroceriesBlockInfo {
+        max-width: 80%;
+    }
+    .GroceriesTitle {
+        font-size: 14vw;
+    }
+    .GroceriesDescription {
+        font-size: 3vw;
+    }
+    .GroceriesShopNow{
+        width: 35vw;
+        height: 4vw;
+    }
+    .GroceriesButtons {
+        width: 40vw;
+    }
+    .GroceriesLearnMore{
+        width: 35vw;
+        height: 4vw;
+    }
+    .Button {
+        font-size: 2vw;
+    }
+
+
+    .LocallySourcedBlock {
+        height: 90vw;
+    }
+    .LocallySourcedPromice{
+        font-size: 4vw;
+    }
+    .LocallySourcedTitle{
+        font-size: 9vw;
+    }
+    .LocallySourcedText{
+        font-size: 3vw;
+        width: 62vw;
+    }
+    .LocallySourcedButton{
+        width: 23vw;
+        height: 4vw;
+    }
+
+    .MadeSimpleTitle {
+        font-size: 11vw;
+    }
+    .MadeSimpleinfo {
+        font-size: 3vw;
+        width: 80vw;
+    }
+    .MadeSimpleBlok {
+        height:270vw;
+    }
+    .MadeSimpleProducts{
+        flex-direction:column;
+    }
+    .ProductImage{
+        width: 57vw;
+        height: 57vw;
+        margin-top: 4vw;
+    }
+    .ProductImage img {
+        width: 24vw;
+    }
+    .ProductButton {
+        width: 25vw;
+        height: 6vw;
+    }
+    .FAQBlock{
+        height :76vw;
+    }
+    .FAQsTitle{
+        font-size: 11vw;
+    }
+    .Question{
+        width:90%
+    }
+    .QuestionText{
+        font-size: 4vw;
+    }
+    .QuestionPlus{
+        font-size: 4vw;
+    }
+    .Question::after {
+        width: 83%;
+        margin-top: 5vw;
+    }
+}
+
