@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Botnaru, Victor, FAF-202</title> <!-- CHANGE THESE VALUES -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script src="assets/js/app.js" defer></script>
+    </head>
+    <body>
+
+        <div class="deleteButton">Delete</div>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="popUp" id="popUp">
+            <div class="popUpContent">
+                <div class="popUpHeader">
+                    <div class="popUpTitle">Add a new task</div>
+                    <img src="assets/img/closeSign.svg" id="closePopUp">
+                </div>
+                <div class="popUpInputs">
+                    <div class="popUpInputBox">
+                        <input type="text" placeholder="Task name" id="taskNameInput">
+                    </div>
+                    <div class="popUpInputBox">
+                        <input type="text" placeholder="Executor" id="executorInput">
+                    </div>
+                    <div class="popUpInputBox">
+                        <input type="text" placeholder="Task description" id="taskInput">
+                    </div>
+                    <div class="popUpInputBox">
+                        <input type="text" placeholder="Expiration date format: dd/mm/yyy" id="expirationInput">
+                    </div>
+                </div>
+                <div class="popUpSave" id="submitButton">
+                    Save task
+                </div>
+            </div>
+        </div>
+
+        <div class="popUpChangeTaskStatus">
+            <div class="popUpContent">
+                <div class="popUpHeader">
+                    <div class="popUpTitle">Change task status</div>
+                    <img src="assets/img/closeSign.svg" id="closeStatusPopUp">
+                </div>
+                <div class="popUpInputs">
+                    <div class="changeStatusButtons" id="statusNormal">
+                        <div class="statusButtonText">Normal</div>
+                        <div class="statusButtonIcon">
+                            <img src="assets/img/infoSign.svg">
+                        </div>
+                    </div>
+                    <div class="changeStatusButtons" id="statusWorking">
+                        <div class="statusButtonText">Working</div>
+                        <div class="statusButtonIcon">
+                            <img src="assets/img/working.svg">
+                        </div>
+                    </div>
+                    <div class="changeStatusButtons" id="statusDone">
+                        <div class="statusButtonText">Done</div>
+                        <div class="statusButtonIcon">
+                            <img src="assets/img/Done.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hiddenBox" style="display: none">
+            <div class="boxExample">
+                <div class="boxMagrin">
+                    <div class="boxHeader">
+                        <div class="boxTaskName">
+                        </div>
+                        <div class="boxTaskStatus">
+                            <div class="boxStatusBackground">
+                                <img src="assets/img/infoSignBackground.svg">
+                                <div class="boxStatusForeground">
+                                    
+                                </div>
+                                <div class="boxStatusExplanation">
+                                    <div class="boxStatus"></div>
+                                    <div class="boxExpirationDate">
+    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxPersonName">
+                    </div>
+                    <div class="boxComents">
+                    </div>
+                    <div class="changeBoxStatus">
+                        change status
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bodyBlocksDistribution">
+            <div class="barBlock">
+                <div class="barButtons">
+                    <div class="logoSign">
+                        <img src="assets/img/logo.svg" >
+                    </div>
+                    <div class="fuctionalButtons">
+                        <div class="addANewBlock">
+                            <img src="assets/img/plusSign.svg" id="newTaskButton">
+                        </div>
+                        <div class="seeDeletedBlocks">
+                            <img src="assets/img/trashSign.svg">
+                        </div>
+                        <div class="notificationBlock">
+                            <img src="assets/img/notificationSign.svg">
+                        </div>
+                        <div class="exitBlock">
+                            <img src="assets/img/exitSign.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="barCopyRightSign">
+                    <img src="assets/img/copyRigntSign.svg" >
+                </div>
+            </div>
+            <div class="contentBox">
+                <div class="tasksBox" id="tasksContainer">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

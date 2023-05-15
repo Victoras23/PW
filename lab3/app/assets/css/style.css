@@ -1,0 +1,371 @@
+/* add your CSS here */
+body{
+    margin: 0;
+}
+
+
+.bodyBlocksDistribution{
+    display: flex;
+}
+
+.barBlock{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: hidden;
+    width: 8vw;
+    border-right: 1px solid#D3CCCC;
+    position: fixed;
+}
+
+.logoSign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6vw;
+    height: 6vw;
+    margin-top: 2vw;
+}
+
+.barButtons{
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+}
+
+.fuctionalButtons{
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    align-items: center;
+}
+
+.barCopyRightSign{
+    display: flex;
+    justify-content: center;
+    height: 4vw;
+}
+
+.contentBox{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 68px;
+    flex-wrap: wrap;
+    overflow: hidden;
+    padding: 5vw;
+    margin-left: 8vw;
+}
+
+.boxExample{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    background: #FFFFFF;
+    box-shadow: 0px 16px 32px #D1DAE8;
+    border-radius: 2px;
+    width: 30%;
+}
+
+.boxHeader{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.boxPersonName{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: -0.02em;
+    color: #202027;
+}
+
+.boxComents, .changeBoxStatus{
+    background: #307EF3;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    padding: 10px 25px;
+    width: 85%;
+    text-align: center;
+}
+
+.boxMagrin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 85%;
+    margin-bottom: 2vw;
+}
+
+.tasksBox{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2vh;
+}
+
+.boxTaskName{
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -0.02em;
+
+    /* textSelectedMain */
+
+    color: #202027;
+}
+
+.boxStatusForeground{
+    position: absolute;
+    margin-top: -46px;
+    margin-left: 8px;
+}
+
+.statusWorking{
+    filter: hue-rotate(180deg);
+}
+
+.statusFailed {
+    filter: brightness(0) saturate(100%) hue-rotate(0deg);
+}
+
+.statusFailed::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FF5E5E;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+.statusDone{
+    filter: brightness(0) saturate(100%) hue-rotate(90deg);
+}
+
+.statusDone::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #24FF00;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+.statusTimeLimited {
+    filter: brightness(0) saturate(100%) contrast(0%) hue-rotate(85deg);
+}
+
+.statusTimeLimited::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #DCE94B;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+.overlay{
+    position:absolute;
+    background: #000000;
+    opacity: 79%;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.popUp{
+    position: fixed;
+    width: 50vw;
+    height: 50vh;
+    top: 25vh;
+    left: 25vw;
+    z-index: 11;
+    background: #FFFFFF;    
+    box-shadow: 0px 8px 16px #D1DAE8;
+    border-radius: 14px;
+    justify-content: center;
+    align-items: center;
+}
+
+.popUpChangeTaskStatus{
+    position: fixed;
+    width: 50vw;
+    height: 50vh;
+    top: 25vh;
+    left: 25vw;
+    z-index: 11;
+    background: #FFFFFF;    
+    box-shadow: 0px 8px 16px #D1DAE8;
+    border-radius: 14px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.popUpContent{
+    width: 90%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.popUpHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popUpHeader img{
+    cursor: pointer;
+}
+
+.popUpTitle{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -0.02em;
+
+    color: #202027;
+}
+
+.popUpInputBox{
+    background: #EFF2F7;
+    /* borderInput */
+
+    border: 1px solid #E5EAF1;
+    border-radius: 14px;
+    height: 21%;
+    display: flex;
+
+}
+
+.popUpInputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60%;
+}
+
+.popUpSave{
+    pointer-events: none;
+    background: radial-gradient(38.06% 91.67% at 50% 50%, #307EF3 0%, #236EDE 100%);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 13%;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    text-align: center;
+    letter-spacing: -0.02em;
+
+    color: #FFFFFF;
+}
+
+input{
+    background: none;
+    border: none;
+    outline: none;
+    margin-left: 25px;
+    width: 88%;
+}
+
+.overlay, .popUp{
+    display: none;
+}
+
+
+.boxStatusExplanation{
+    display: none;
+    position: absolute;
+    background: #444453;
+    border-radius:14px;
+    margin-top:-6%;
+    margin-left:-15%;
+    padding:3%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: -0.02em;
+
+    color: #FFFFFF;
+}
+
+.boxStatusForeground:hover + .boxStatusExplanation{
+    display: block;
+}
+
+.changeBoxStatus{
+    cursor: pointer;
+}
+
+.changeStatusButtons{
+    background: #307EF3;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 14px;
+    padding: 10px 20px;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+}
+
+.addANewBlock, .seeDeletedBlocks, .notificationBlock, .exitBlock{
+    cursor: pointer;
+}
+
+.deleteButton{
+    position: fixed;
+    width: 30vw;
+    left: 35vw;
+    bottom: 10vh;
+    background: #307EF3;
+    height: 5vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
