@@ -344,7 +344,7 @@ input{
     color: #FFFFFF;
 }
 
-.addANewBlock, .seeDeletedBlocks, .notificationBlock, .exitBlock{
+.addANewBlock, .seeDeletedBlocks, .notificationBlock, .exitBlock, .filterTasks{
     cursor: pointer;
 }
 
@@ -367,5 +367,81 @@ input{
 
     color: #FFFFFF;
     cursor: pointer;
+}
+
+.notificationAboutTasks{
+    background: #FF5E5E;
+    border-radius: 44px;
+    position: absolute;
+    margin-top: -30%;
+    margin: left;
+    margin-left: 12%;
+    font-size: 15px;
+    line-height: 1;
+    text-align: center;
+}
+
+.notificationBlockPopUp{
+    position: absolute;
+    width: 50vw;
+    margin-left: 10vw;
+    margin-top: 20vh;
+    background: #ffffff;
+    box-shadow: 0px 16px 32px #D1DAE8;
+    max-height: 50vh;
+    padding: 30px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1;
+}
+
+.filterBlockPopUp{
+    position: absolute;
+    width: 50vw;
+    margin-left: 10vw;
+    margin-top: 20vh;
+    background: #ffffff;
+    box-shadow: 0px 16px 32px #D1DAE8;
+    max-height: 50vh;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1;
+}
+
+.notificationDescription{
+    width: 90%;
+    opacity: 100%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.filterElement{
+    width: 95%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 14px;
+    cursor: pointer;
+    color: #000000;
+}
+
+.filterElementChecked{
+    padding: 5%;
+    background: #307EF3;
+    color: #ffffff;
+    transition: all 0.4s;
 }
 

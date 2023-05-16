@@ -6,6 +6,9 @@ const failedTask = "<img src='assets/img/failed.svg'>"
 
 const tasksContainer = document.getElementById("tasksContainer");
 
+const notificationContainer = document.querySelector(".notificationBlockPopUp");
+let notificationContainerSwhown = false;
+
 const taskName = document.getElementById("taskNameInput");
 const executor = document.getElementById("executorInput");
 const task = document.getElementById("taskInput");
@@ -23,11 +26,56 @@ let toBeDeleted = [];
 
 let deleteButton = document.querySelector(".deleteButton");
 
+let nrOfNotifications = 0;
+let failedTasks = [];
+let lowTimeTask = [];
+
+let filters = [];
+
 taskInitialisation();
 
 document.querySelector(".seeDeletedBlocks").addEventListener("click", showDeletingPage);
 
 deleteButton.addEventListener("click", removeBoxes);
+
+document.querySelector(".filterTasks").addEventListener("click", showHideFilterPopUp)
+
+
+
+document.getElementById("filterNormal").addEventListener("click", function() {
+    addAndRemoveFilters(0, "filterNormal");
+  });
+  
+  document.getElementById("filterWorking").addEventListener("click", function() {
+    addAndRemoveFilters(1, "filterWorking");
+  });
+  
+  document.getElementById("filterDone").addEventListener("click", function() {
+    addAndRemoveFilters(3, "filterDone");
+  });
+  
+  document.getElementById("filterTimeLimited").addEventListener("click", function() {
+    addAndRemoveFilters(2, "filterTimeLimited");
+  });
+  
+  document.getElementById("filterFiled").addEventListener("click", function() {
+    addAndRemoveFilters(4, "filterFiled");
+  });
+  
+  function addAndRemoveFilters(filter, filterName) {
+    if (filters.includes(filter)) {
+      let index = filters.indexOf(filter);
+      if (index !== -1) {
+        filters.splice(index, 1);
+      }
+      document.getElementById(filterName).classList.remove("filterElementChecked");
+    } else {
+      filters.push(filter);
+      document.getElementById(filterName).classList.add("filterElementChecked");
+    }
+    filterDisplayedElements();
+  }
+  
 
 
 function taskInitialisation(){
@@ -37,13 +85,60 @@ function taskInitialisation(){
         tasks = JSON.parse(tasks);
         for (let key in tasks){
             if (tasks[key].status === 0 ){
-                taskConstructor(tasks[key].taskName, tasks[key].executor, tasks[key].task, tasks[key].expiration, seeExpirationstatus(tasks[key].expiration), key)
+                actualStatus = seeExpirationstatus(tasks[key].expiration)
+                taskConstructor(tasks[key].taskName, tasks[key].executor, tasks[key].task, tasks[key].expiration, actualStatus, key)
+                if(actualStatus !== 0){
+                    nrOfNotifications++;
+                    if(actualStatus === 2){
+                        lowTimeTask.push([tasks[key].taskName, tasks[key].executor, tasks[key].expiration])
+                    }
+                    else{
+                        failedTasks.push([tasks[key].taskName, tasks[key].executor, tasks[key].expiration])
+                    }
+                }
             }
             else{
                 taskConstructor(tasks[key].taskName, tasks[key].executor, tasks[key].task, tasks[key].expiration, tasks[key].status, key)
             }
         }
     }
+    if(nrOfNotifications){
+        let numberOfNotifications = document.querySelector(".notificationAboutTasks")
+        numberOfNotifications.innerHTML = nrOfNotifications
+        numberOfNotifications.style.padding = "2px 5px "
+
+        while (lowTimeTask.length > 0) {
+            const poppedElement = lowTimeTask.pop();
+            addElementIntoNotificationBar(poppedElement[0], poppedElement[1], poppedElement[2])
+        }
+
+        while (failedTasks.length > 0) {
+            const poppedElement = failedTasks.pop();
+            addElementIntoNotificationBar(poppedElement[0], poppedElement[1], poppedElement[2], true)
+        }
+    }
+}
+
+document.querySelector(".notificationBlock").addEventListener('click', function(){
+    if (!notificationContainerSwhown){
+        notificationContainer.style.display = "flex"
+        notificationContainerSwhown = true;
+    }
+    else{
+        notificationContainer.style.display = "none"
+        notificationContainerSwhown = false;
+    }
+})
+
+function addElementIntoNotificationBar(taskName, executor, expiration, isFailed = false){
+    let ajustments = "";
+    if(!isFailed){
+        ajustments = "<div class='notificationDescription' style='color: #FFB55E'>" + executor + " should complete task " + taskName + " till " + expiration + "</div>";
+    }
+    else {
+        ajustments = "<div class='notificationDescription' style='color: #FF5E5E'>" + "Task " + taskName +" was failed by " + executor + "</div>";
+    }
+    notificationContainer.insertAdjacentHTML("beforeend", ajustments)
 }
 
 
@@ -199,6 +294,7 @@ function taskConstructor(taskName, executor, task, expiration, status, taskID){
 
     box.querySelector(".changeBoxStatus").id = "task"+taskID;
     box.querySelector(".boxExample").id = taskID;
+    box.querySelector(".boxExample").setAttribute("status", status)
 
     tasksContainer.insertAdjacentHTML("beforeend", box.innerHTML)
 
@@ -304,6 +400,32 @@ function handleClick() {
         toBeDeleted.push(this.id)
         this.style.boxShadow = "0px 16px 32px #FF5E5E";
     }
-
-
 }
+
+let filterPopUp = document.querySelector(".filterBlockPopUp");
+
+function showHideFilterPopUp(){
+    if(filterPopUp.style.display === "none"){
+        filterPopUp.style.display = "flex"
+    }
+    else{
+        filterPopUp.style.display = "none"
+    }
+}
+
+function filterDisplayedElements(){
+    let tasks = document.querySelectorAll(".boxExample"); 
+
+    for (let task of tasks){
+        if(filters.length === 0 ){
+            task.style.display = "flex";
+        }
+        else if( filters.indexOf(parseInt(task.getAttribute("status"))) !== -1 ){
+            task.style.display = "flex";
+        }
+        else{
+            task.style.display = "none";
+        }
+    }
+}
+
